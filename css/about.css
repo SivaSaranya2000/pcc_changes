@@ -98,8 +98,9 @@ button{ font-family:inherit; cursor:pointer; }
 /* ---------- Blueprint background ---------- */
 .blueprint{
   position:relative;
-  background-image:
-    radial-gradient(circle, rgba(30,95,168,0.14) 1px, transparent 1px);
+  background-color: #edeff1;
+  /* background-image:
+    radial-gradient(circle, rgba(30,95,168,0.14) 1px, transparent 1px); */
   background-size:26px 26px;
 }
 
