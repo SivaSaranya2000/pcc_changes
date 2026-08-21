@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoCAD -Master AutoCAD  with Industry-Focused Training for Your Design Career</title>
+<meta name="description" content="Master AutoCAD  with Industry-Focused Training for Your Design Career.">
+<link rel="icon" type="image/jpeg" href="images/pcc-logo.jpeg">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/about.css">
+<style>
+
+
+  .courses-section {
+     background-color: #f3f3f3;
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #1e1e1e;
+  }
+
+  .course-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .course-img-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .course-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .course-img-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%);
+  }
+
+  .course-body {
+    padding: 25px;
+  }
+
+  .course-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  .course-subtitle {
+    color: #d9d9d9;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .course-details p {
+    border-left: 3px solid #e07a3f;
+    padding-left: 12px;
+    margin-bottom: 12px;
+    color: #cfcfcf;
+    font-size: 0.95rem;
+  }
+
+  .course-details p strong {
+    color: #fff;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+ <header class="site-header">
+    <nav class="nav">
+      <!-- <a href="index.html" class="brand brand-logo-only">
+        <img src="images/pcc-logo.jpeg" alt="PCC Academy" class="mark">
+      </a> -->
+      <a href="index.html" class="brand">
+  <img src="images/logo/logo1.png" alt="PCC GROUPS" class="mark">
+  <span class="brand-name">PCC GROUPS</span>
+</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="has-dropdown">
+          <a href="#" class="nav-link">PCC GROUPS</a>
+          <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-label="Toggle Courses submenu">
+            <svg viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="dropdown">
+           
+           <a href="academy.html"><span class="dot"></span><span class="dd-text">PCC Academy</span></a>
+           <a href="consultant.html"><span class="dot"></span><span class="dd-text">PCC Consultant</span></a> 
+           <a href="project_center.html"><span class="dot"></span><span class="dd-text">PCC Project Center</span></a> 
+           <a href="career_academy.html"><span class="dot"></span><span class="dd-text">PCC  Career Academy</span></a> 
+           <a href="ai.html"><span class="dot"></span><span class="dd-text">PCC STEM & AI</span></a> 
+
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Courses</a>
+          <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-label="Toggle Courses submenu">
+            <svg viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <!-- <a href="#"><span class="dot"></span><span class="dd-text">IT Courses</span></a>
+            <a href="#"><span class="dot"></span><span class="dd-text">Engineering Projects</span></a>
+            <a href="#"><span class="dot"></span><span class="dd-text">AutoCAD </span></a> -->
+                 <a href="auto-cad.html"><span class="dot"></span><span class="dd-text">AutoCAD </span></a> 
+                <a href="courses-it.html"><span class="dot"></span><span class="dd-text">IT Courses</span></a>
+                <a href="ece.html"><span class="dot"></span><span class="dd-text">Electronics Courses</span></a> 
+          </div>
+        </li>
+        <li><a href="project.html" class="nav-link">Projects</a></li>
+        <li><a href="careers.html" class="nav-link">Careers</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+
+     
+        <!-- <a href="contact.html" class="btn btn-ghost">Contact Us</a> -->
+          <div class="nav-cta">
+      <!--   <a href="tel:+91 63828 94608" class="btn btn-primary">Enroll Now
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>-->
+        <button class="nav-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div> 
+    </nav>
+  </header>
+
+  <!-- Mobile panel -->
+  <div class="mobile-overlay"></div>
+  <div class="mobile-panel">
+    <div class="m-head">
+      <span class="brand brand-logo-only"><img src="images/logo/logo2.png" alt="PCC Academy" class="mark"></span>
+      <button class="m-close" aria-label="Close menu">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2 2L14 14M14 2L2 14" stroke="#0B2545" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+     <div class="m-group-label">PCC GROUPS</div>
+    <div class="m-sub">
+      <a href="academy.html">— PCC Academy</a>
+       <a href="consultant.html">— PCC Consultant</a>
+     <a href="project_center.html">— PCC Project Center</a>
+       <a href="career_academy.html">— PCC  Career Academy</a>
+     <a href="ai.html">— PCC STEM & AI</a>
+    </div>
+    <div class="m-group-label">Courses</div>
+    <div class="m-sub">
+      <a href="auto-cad.html">— AutoCAD </a>
+      <a href="courses-it.html">— IT Courses</a>
+      <a href="ece.html">— Electronics Courses</a>
+       
+     
+     
+    </div>
+     <a href="project.html">Projects</a>
+     <a href="careers.html">Careers</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+  <!-- <a href="tel:+91 63828 94608" class="btn btn-primary" style="margin-top:22px; justify-content:center; border:none;">Enroll
+      Now</a> --> 
+  </div>
+<!-- ============ FLOATING CONTACT BUTTONS ============ -->
+<div class="float-contact" aria-label="Quick contact options">
+<a href="https://wa.me/916382894608?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses"
+   target="_blank" rel="noopener" class="fc-btn fc-whatsapp" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.05 0 5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.423-8.452"/></svg>
+  <span class="fc-tooltip">Chat on WhatsApp</span>
+</a>
+  <a href="tel:+916382894608" class="fc-btn fc-call" aria-label="Call PCC Academy">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor"/></svg>
+    <span class="fc-tooltip">Call +91 63828 94608</span>
+  </a>
+</div>
+<section class="ah-banner">
+  <div class="container ah-grid">
+    <div class="ah-copy reveal">
+      <!-- <div class="ah-breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span>About Us
+      </div> -->
+      <h1>Master AutoCAD  with Industry-Focused Training for Your Design Career</h1>
+      <div class="ah-stats">
+        <p><strong>3,200+</strong> Students Trained Across Tamil Nadu</p>
+        <p><strong>94%</strong> Placement Rate With 60+ Hiring Partners</p>
+      </div>
+      <div class="ah-ribbon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.6L21 11l-6.4 2.4L12 20l-2.6-6.6L3 11l6.4-2.4L12 2z" fill="currentColor"/></svg>
+        3 Years of Training Legacy
+      </div>
+    </div>
+    <div class="ah-media reveal">
+      <div class="am-glow" aria-hidden="true"></div>
+      <div class="am-photo">
+        <img src="images/course.avif" alt="PCC Academy students training in the lab">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="courses-section">
+  <div class="container">
+    <h2 class="section-title">Courses</h2>
+    <div class="row g-4">
+
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="images/mep.jfif" alt="BIM-Ready+">
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">Mastering MEP Design</h3>
+            <p class="course-subtitle">Learn Mechanical, Electrical, and Plumbing systems with real-world design concepts.
+</p>
+            <div class="course-details">
+              <p>Duration - <strong>5 Months</strong></p>
+              <p>Hours - <strong>200 Hours</strong></p>
+              <p>Assessments - <strong>8 Assessments</strong></p>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="images/mech.jfif" alt="BIM Ready Architecture Advanced">
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">Mechanical Systems - AutoCAD /REVIT</h3>
+            <p class="course-subtitle">Learn HVAC, mechanical layouts, 3D modeling, and engineering design workflows.</p>
+            <div class="course-details">
+              <p>Duration - <strong>5 Months</strong></p>
+              <p>Hours - <strong>200 Hours</strong></p>
+              <p>Assessments - <strong>8 Assessments</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="images/electrical.jfif" alt="BIM Ready Civil Course">
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">Electrical Systems- AutoCAD /REVIT</h3>
+            <p class="course-subtitle">Learn electrical layouts, power distribution, lighting design, and BIM-based modeling workflows.</p>
+            <div class="course-details">
+              <p>Duration - <strong>3 Months</strong></p>
+              <p>Hours - <strong>160 Hours</strong></p>
+              <p>Assessments - <strong>6 Assessments</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!-- Card 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="images/plumbing.jfif" alt="BIM Ready Civil Course">
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">Plumbing Systems - AutoCAD /REVIT</h3>
+            <p class="course-subtitle">Explore AutoCAD  drafting, Revit modeling, and professional plumbing design processes.</p>
+            <div class="course-details">
+              <p>Duration - <strong>3 Months</strong></p>
+              <p>Hours - <strong>160 Hours</strong></p>
+              <p>Assessments - <strong>6 Assessments</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!-- Card 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="images/autocad.jfif" alt="BIM Ready Civil Course">
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">AutoCAD </h3>
+            <p class="course-subtitle">Learn 2D drafting, 3D modeling, design techniques, and professional drawing workflows.</p>
+            <div class="course-details">
+              <p>Duration - <strong>5 Months</strong></p>
+              <p>Hours - <strong>200 Hours</strong></p>
+              <p>Assessments - <strong>8 Assessments</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!-- Card 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card">
+          <div class="course-img-wrap">
+            <img src="images/revit.jfif" alt="BIM Ready Civil Course">
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">REVIT</h3>
+            <p class="course-subtitle">Learn 3D modeling, architectural design, MEP workflows, and building information modeling.</p>
+            <div class="course-details">
+              <p>Duration - <strong>5 Months</strong></p>
+              <p>Hours - <strong>200 Hours</strong></p>
+              <p>Assessments - <strong>8 Assessments</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+
+    </div>
+  </div>
+</section>
+
+<!-- <section style="padding-bottom:0;">
+  <div class="container">
+    <p style="max-width:640px;font-size:1.08rem;" class="reveal">Four programs covering the skills IT teams hire for most: programming fundamentals, networking, hardware &amp; support, and full-stack development — each with dedicated lab hours.</p>
+    <div class="hero-actions reveal">
+      <a href="contact.html" class="btn btn-primary">Enroll in IT Courses</a>
+      <a href="courses.html" class="btn btn-ghost">Back to All Courses</a>
+    </div>
+  </div>
+</section> -->
+
+<!-- <section style="padding-top:32px;">
+  <div class="container" style="max-width:820px;">
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="yr">Foundation · 8 Weeks</div>
+        <h4>Programming Fundamentals</h4>
+        <p>Python and Java basics, logic building, and version control — the starting point for every other IT track.</p>
+        <ul class="value-list" style="margin-top:14px;">
+          <li><span class="num">•</span><span>Core syntax, data structures &amp; debugging</span></li>
+          <li><span class="num">•</span><span>Git &amp; GitHub workflow</span></li>
+          <li><span class="num">•</span><span>Mini project: a working CLI tool</span></li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="yr">Intermediate · 10 Weeks</div>
+        <h4>Networking &amp; System Administration</h4>
+        <p>Set up, secure and troubleshoot networks the way an on-site IT technician would.</p>
+        <ul class="value-list" style="margin-top:14px;">
+          <li><span class="num">•</span><span>TCP/IP, routing &amp; subnetting on live racks</span></li>
+          <li><span class="num">•</span><span>Windows &amp; Linux server administration</span></li>
+          <li><span class="num">•</span><span>CCNA-aligned lab exercises</span></li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="yr">Intermediate · 8 Weeks</div>
+        <h4>Hardware &amp; Technical Support</h4>
+        <p>Diagnose, repair and support desktops, laptops and peripherals — plus how to run a help desk ticket queue.</p>
+        <ul class="value-list" style="margin-top:14px;">
+          <li><span class="num">•</span><span>Assembly, diagnostics &amp; component-level repair</span></li>
+          <li><span class="num">•</span><span>OS installation &amp; driver troubleshooting</span></li>
+          <li><span class="num">•</span><span>Ticketing tools &amp; support etiquette</span></li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="yr">Advanced · 14 Weeks</div>
+        <h4>Full-Stack Web Development</h4>
+        <p>Build and deploy real applications using modern front-end and back-end tools.</p>
+        <ul class="value-list" style="margin-top:14px;">
+          <li><span class="num">•</span><span>HTML, CSS, JavaScript &amp; a modern framework</span></li>
+          <li><span class="num">•</span><span>REST APIs, databases &amp; authentication</span></li>
+          <li><span class="num">•</span><span>Capstone project deployed to production</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<section class="blueprint">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow" style="justify-content:center;">What you need to start</div>
+      <h2>Eligibility &amp; batch details</h2>
+    </div>
+    <div class="icon-row-grid">
+      <div class="icon-row-item reveal"><div class="ir-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V6a2 2 0 012-2h9l5 5v10a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><h4>Eligibility</h4><p>Class 12 pass or equivalent. No prior coding experience needed for the Foundation program.</p></div>
+      <div class="icon-row-item reveal"><div class="ir-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h4>Batch Timing</h4><p>Weekday morning/evening and weekend batches available for every program.</p></div>
+      <div class="icon-row-item reveal"><div class="ir-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><h4>Certification</h4><p>Assessed project + written test, with a PCC Academy certificate on completion.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="eyebrow" style="justify-content:center;color:#dbeafe;">Next IT batch forming now</div>
+      <h2>Reserve your seat in the IT track</h2>
+      <p>Seats are limited to keep lab and workstation time one-to-one.</p>
+      <div class="actions">
+        <a href="contact.html" class="btn btn-white">Enroll Now</a>
+        <!-- <a href="courses-eee.html" class="btn" style="border:1.5px solid rgba(255,255,255,.5); color:#fff;">Explore EEE Projects</a> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+ <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="brand brand-logo-only"><img src="images/logo/logo1.1.jpeg" alt="PCC Academy" class="mark"></span>
+          <p class="about">A Training Institute offering IT Courses, Engineering Project Training, and Professional
+            AutoCAD  2D & 3D Courses.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none">
+                <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z" fill="currentColor" />
+              </svg></a>
+            <a href="https://www.instagram.com/pcc_academy_ngl?utm_source=qr&igsh=MWkzazdhOGw4OHBkMg=="
+              aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" target="_blank">
+                <rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="16.6" cy="7.4" r="1" fill="currentColor" />
+              </svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.7" />
+                <path d="M8 10.5v6M8 8v.01M12 16.5v-3.6c0-1.4 1-2.4 2.2-2.4S16 11.5 16 13v3.5" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" />
+              </svg></a>
+            <a href="https://youtube.com/@pccacademy-c6y?si=T_yzQghVoS3qcxLo" target="_blank" aria-label="YouTube"><svg
+                viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="6.5" width="18" height="11" rx="3" stroke="currentColor" stroke-width="1.7" />
+                <path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" />
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>PCC GROUPS</h4>
+          <ul>
+            <li><a href="academy.html">PCC Academy</a></li>
+            <li><a href="consultant.html">PCC Consultant</a></li>
+            <li><a href="project_center.html">PCC Project Center</a></li>
+            <li><a href="career_academy.html">PCC  Career Academy</a></li>
+            <li><a href="ai.html">PCC STEM & AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in Touch</h4>
+           <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 6l8 6 8-6M4 6h16v12H4V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="mailto:pccacademy.edu@gmail.com">pccacademy.edu@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <a href="tel:+916382894608">+91 63828 94608</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <a href="tel:+916374392096">+91 63743 92096</a>
+        </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            <span>PCC Academy ,Opp to vadasery Busstand, thanu Building Nagercoil-1</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span class="year"></span> PCC Academy. All rights reserved.</span>
+        <!-- <span>Designed for practical, industry-ready learning.</span> -->
+      </div>
+    </div>
+  </footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

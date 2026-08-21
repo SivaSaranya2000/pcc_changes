@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — PCC Academy</title>
+<meta name="description" content="A look inside PCC Academy's IT lab, electrical workshop and fire safety drill ground.">
+<link rel="icon" type="image/jpeg" href="images/pcc-logo.jpeg">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/about.css">
+</head>
+<style>
+  html, body{
+    overflow-x: hidden;
+  }
+
+  .gallery-section {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #0a0505;
+  }
+
+  /* Fix: Bootstrap's .row negative margins don't match our .container's flat
+     padding, which was pushing the grid past the viewport edge on small
+     screens. Reset the row/col gutters to a safe, self-contained value. */
+  .gallery-section .row{
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .gallery-section [class*="col-"]{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .gallery-section .row.g-4{
+    row-gap: 20px;
+  }
+
+  /* Renamed from .gallery-item to avoid colliding with the .gallery-item
+     class already defined in css/style.css (different, older gallery design) */
+  .pcc-gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 260px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  }
+
+  .pcc-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .pcc-gallery-item:hover img {
+    transform: scale(1.08);
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 55%);
+    display: flex;
+    align-items: flex-end;
+    padding: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .pcc-gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+
+  .gallery-caption {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #fff;
+    border-left: 3px solid #e07a3f;
+    padding-left: 10px;
+  }
+
+  /* Lightbox modal tweaks */
+  .modal-content {
+    background-color: #1e1e1e;
+    border: none;
+  }
+
+  .modal-body img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .btn-close {
+    filter: invert(1);
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: #fff;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 5;
+    transition: background 0.2s ease;
+  }
+
+  .lightbox-nav:hover {
+    background: #e07a3f;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  .modal-body {
+    position: relative;
+  }
+
+  .lightbox-counter {
+    text-align: center;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 991.98px) {
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 35px;
+    }
+
+    .pcc-gallery-item {
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .gallery-section {
+      padding: 40px 15px;
+    }
+
+    .pcc-gallery-item {
+      height: 240px;
+    }
+
+    /* show caption without needing hover on touch devices */
+    .gallery-overlay {
+      opacity: 1;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 65%);
+    }
+
+    .lightbox-nav {
+      width: 38px;
+      height: 38px;
+      font-size: 1.2rem;
+    }
+
+    .lightbox-prev { left: 4px; }
+    .lightbox-next { right: 4px; }
+
+    .modal-title {
+      font-size: 1.05rem;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .section-title {
+      font-size: 1.6rem;
+    }
+
+    .pcc-gallery-item {
+      height: 200px;
+    }
+
+    .modal-dialog {
+      margin: 10px;
+    }
+
+    .modal-body img {
+      max-height: 55vh;
+      object-fit: contain;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .pcc-gallery-item{ height: 170px; }
+  }
+</style>
+<body>
+
+ <!-- ============ HEADER ============ -->
+ <header class="site-header">
+    <nav class="nav">
+      <!-- <a href="index.html" class="brand brand-logo-only">
+        <img src="images/pcc-logo.jpeg" alt="PCC Academy" class="mark">
+      </a> -->
+      <a href="index.html" class="brand">
+  <img src="images/logo/logo1.png" alt="PCC GROUPS" class="mark">
+  <span class="brand-name">PCC GROUPS</span>
+</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="has-dropdown">
+          <a href="#" class="nav-link">PCC GROUPS</a>
+          <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-label="Toggle Courses submenu">
+            <svg viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="dropdown">
+           
+           <a href="academy.html"><span class="dot"></span><span class="dd-text">PCC Academy</span></a>
+           <a href="consultant.html"><span class="dot"></span><span class="dd-text">PCC Consultant</span></a> 
+           <a href="project_center.html"><span class="dot"></span><span class="dd-text">PCC Project Center</span></a> 
+           <a href="career_academy.html"><span class="dot"></span><span class="dd-text">PCC  Career Academy</span></a> 
+           <a href="ai.html"><span class="dot"></span><span class="dd-text">PCC STEM & AI</span></a> 
+
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Courses</a>
+          <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-label="Toggle Courses submenu">
+            <svg viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <!-- <a href="#"><span class="dot"></span><span class="dd-text">IT Courses</span></a>
+            <a href="#"><span class="dot"></span><span class="dd-text">Engineering Projects</span></a>
+            <a href="#"><span class="dot"></span><span class="dd-text">AutoCAD </span></a> -->
+                 <a href="auto-cad.html"><span class="dot"></span><span class="dd-text">AutoCAD </span></a> 
+                <a href="courses-it.html"><span class="dot"></span><span class="dd-text">IT Courses</span></a>
+                <a href="ece.html"><span class="dot"></span><span class="dd-text">Electronics Courses</span></a> 
+          </div>
+        </li>
+        <li><a href="project.html" class="nav-link">Projects</a></li>
+        <li><a href="careers.html" class="nav-link">Careers</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+
+     
+        <!-- <a href="contact.html" class="btn btn-ghost">Contact Us</a> -->
+          <div class="nav-cta">
+      <!--   <a href="tel:+91 63828 94608" class="btn btn-primary">Enroll Now
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>-->
+        <button class="nav-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div> 
+    </nav>
+  </header>
+
+  <!-- Mobile panel -->
+  <div class="mobile-overlay"></div>
+  <div class="mobile-panel">
+    <div class="m-head">
+      <span class="brand brand-logo-only"><img src="images/logo/logo2.png" alt="PCC Academy" class="mark"></span>
+      <button class="m-close" aria-label="Close menu">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2 2L14 14M14 2L2 14" stroke="#0B2545" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+     <div class="m-group-label">PCC GROUPS</div>
+    <div class="m-sub">
+      <a href="academy.html">— PCC Academy</a>
+       <a href="consultant.html">— PCC Consultant</a>
+     <a href="project_center.html">— PCC Project Center</a>
+       <a href="career_academy.html">— PCC  Career Academy</a>
+     <a href="ai.html">— PCC STEM & AI</a>
+    </div>
+    <div class="m-group-label">Courses</div>
+    <div class="m-sub">
+      <a href="auto-cad.html">— AutoCAD </a>
+      <a href="courses-it.html">— IT Courses</a>
+      <a href="ece.html">— Electronics Courses</a>
+       
+     
+     
+    </div>
+     <a href="project.html">Projects</a>
+     <a href="careers.html">Careers</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+  <!-- <a href="tel:+91 63828 94608" class="btn btn-primary" style="margin-top:22px; justify-content:center; border:none;">Enroll
+      Now</a> --> 
+  </div>
+
+<div class="float-contact" aria-label="Quick contact options">
+<a href="https://wa.me/916382894608?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses"
+   target="_blank" rel="noopener" class="fc-btn fc-whatsapp" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.05 0 5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.423-8.452"/></svg>
+  <span class="fc-tooltip">Chat on WhatsApp</span>
+</a>
+  <a href="tel:+916382894608" class="fc-btn fc-call" aria-label="Call PCC Academy">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor"/></svg>
+    <span class="fc-tooltip">Call +91 63828 94608</span>
+  </a>
+</div>
+<section class="ah-banner">
+  <div class="container ah-grid">
+    <div class="ah-copy reveal">
+      <h1>Discover Our Training, Projects &amp; Student Achievements</h1>
+      <div class="ah-stats">
+        <p><strong>3,200+</strong> Students Trained Across Tamil Nadu</p>
+        <p><strong>94%</strong> Placement Rate With 60+ Hiring Partners</p>
+      </div>
+      <div class="ah-ribbon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.6L21 11l-6.4 2.4L12 20l-2.6-6.6L3 11l6.4-2.4L12 2z" fill="currentColor"/></svg>
+        3 Years of Training Legacy
+      </div>
+    </div>
+    <div class="ah-media reveal">
+      <div class="am-glow" aria-hidden="true"></div>
+      <div class="am-photo">
+        <img src="images/gallery.jfif" alt="PCC Academy students training in the lab">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="container">
+    <h2 class="section-title">Gallery</h2>
+    <div class="row g-4">
+
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery1.jpeg" data-caption="Achievements">
+          <img src="images/gallery/gallery1.jpeg" alt="Gallery Image 1">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery7.jpeg" data-caption="Achievements">
+          <img src="images/gallery/gallery7.jpeg" alt="Gallery Image 2">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery3.jpeg" data-caption="Achievements">
+          <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery8.jpeg" data-caption="Achievements">
+          <img src="images/gallery/gallery8.jpeg" alt="Gallery Image 4">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery5.jpeg" data-caption="Achievements">
+          <img src="images/gallery/gallery5.jpeg" alt="Gallery Image 5">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery9.jpeg" data-caption="Achievements">
+          <img src="images/gallery/gallery9.jpeg" alt="Gallery Image 6">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery9.jpeg" data-caption="Achievements">
+          <img src="images/img1.1.jpeg" alt="Gallery Image 6">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery9.jpeg" data-caption="Achievements">
+          <img src="images/img1.2.jpeg" alt="Gallery Image 6">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery9.jpeg" data-caption="Achievements">
+          <img src="images/img1.3.jpeg" alt="Gallery Image 6">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery9.jpeg" data-caption="Achievements">
+          <img src="images/img1.4.jpeg" alt="Gallery Image 6">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="pcc-gallery-item" data-img="images/gallery/gallery9.jpeg" data-caption="Achievements">
+          <img src="images/img1.5.jpeg" alt="Gallery Image 6">
+          <!-- <div class="gallery-overlay"><span class="gallery-caption">Achievements</span></div> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="lightboxCaption"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-0">
+        <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#10094;</button>
+        <img id="lightboxImage" src="" alt="Preview">
+        <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#10095;</button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="eyebrow" style="justify-content:center;color:#dbeafe;">See it in person</div>
+      <h2>Prefer a live walk-through?</h2>
+      <p>Book a campus tour and see the labs, workshop and drill ground for yourself.</p>
+      <div class="actions">
+        <a href="tel:+916382894608" class="btn btn-white">Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="brand brand-logo-only"><img src="images/logo/logo1.1.jpeg" alt="PCC Academy" class="mark"></span>
+          <p class="about">A Training Institute offering IT Courses, Engineering Project Training, and Professional
+            AutoCAD  2D & 3D Courses.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none">
+                <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z" fill="currentColor" />
+              </svg></a>
+            <a href="https://www.instagram.com/pcc_academy_ngl?utm_source=qr&igsh=MWkzazdhOGw4OHBkMg=="
+              aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" target="_blank">
+                <rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="16.6" cy="7.4" r="1" fill="currentColor" />
+              </svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.7" />
+                <path d="M8 10.5v6M8 8v.01M12 16.5v-3.6c0-1.4 1-2.4 2.2-2.4S16 11.5 16 13v3.5" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" />
+              </svg></a>
+            <a href="https://youtube.com/@pccacademy-c6y?si=T_yzQghVoS3qcxLo" target="_blank" aria-label="YouTube"><svg
+                viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="6.5" width="18" height="11" rx="3" stroke="currentColor" stroke-width="1.7" />
+                <path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" />
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>PCC GROUPS</h4>
+          <ul>
+            <li><a href="academy.html">PCC Academy</a></li>
+            <li><a href="consultant.html">PCC Consultant</a></li>
+            <li><a href="project_center.html">PCC Project Center</a></li>
+            <li><a href="career_academy.html">PCC  Career Academy</a></li>
+            <li><a href="ai.html">PCC STEM & AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in Touch</h4>
+           <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 6l8 6 8-6M4 6h16v12H4V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="mailto:pccacademy.edu@gmail.com">pccacademy.edu@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <a href="tel:+916382894608">+91 63828 94608</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <a href="tel:+916374392096">+91 63743 92096</a>
+        </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            <span>PCC Academy ,Opp to vadasery Busstand, thanu Building Nagercoil-1</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span class="year"></span> PCC Academy. All rights reserved.</span>
+        <!-- <span>Designed for practical, industry-ready learning.</span> -->
+      </div>
+    </div>
+  </footer>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+  const galleryItems = Array.from(document.querySelectorAll('.pcc-gallery-item'));
+  const lightboxModalEl = document.getElementById('lightboxModal');
+  const lightboxModal = new bootstrap.Modal(lightboxModalEl);
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    // wrap around both directions
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+    lightboxImage.src = item.getAttribute('data-img');
+    lightboxCaption.textContent = item.getAttribute('data-caption');
+    lightboxCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+  }
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      showImage(index);
+      lightboxModal.show();
+    });
+  });
+
+  document.getElementById('lightboxPrev').addEventListener('click', () => showImage(currentIndex - 1));
+  document.getElementById('lightboxNext').addEventListener('click', () => showImage(currentIndex + 1));
+
+  // keyboard navigation while modal is open
+  document.addEventListener('keydown', (e) => {
+    if (!lightboxModalEl.classList.contains('show')) return;
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+</script>
+</body>
+</html>

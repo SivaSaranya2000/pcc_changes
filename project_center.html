@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Center — PCC Project Center</title>
+<meta name="description" content="IT training at PCC Academy: programming, networking, hardware support and full-stack development.">
+<link rel="icon" type="image/jpeg" href="images/pcc-logo.jpeg">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/about.css">
+
+
+<style>
+
+
+  .ff-display{font-family:'Chakra Petch',sans-serif;}
+  .ff-mono{font-family:'JetBrains Mono',monospace;}
+  .bg-navy{background:#0B2545;}
+  .bg-navy-2{background:#122A4C;}
+  .text-amber{color:#F0A63A;}
+  .border-amber{border-color:#F0A63A !important;}
+  .btn-amber{background:#F0A63A; border-color:#F0A63A; color:#0B1F3A; font-weight:700;}
+  .btn-amber:hover{background:#C87F1E; border-color:#C87F1E; color:#fff;}
+
+  /* circuit trace hero background */
+  .trace-bg{
+    background-image:
+      linear-gradient(rgba(240,166,58,.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240,166,58,.18) 1px, transparent 1px);
+    background-size:64px 64px, 96px 96px;
+    background-position:0 0, 32px 32px;
+  }
+
+  .via-dot{width:6px; height:6px; border-radius:50%; background:#F0A63A; display:inline-block;}
+
+  .degree-chip{
+    font-family:'JetBrains Mono',monospace;
+    border:1px solid #F0A63A;
+    color:#F0A63A;
+    font-size:.82rem;
+    border-radius:3px;
+  }
+
+  /* IC chip style module card */
+  .ic-card{
+    position:relative;
+    background:#fff;
+    border:1px solid rgba(11,31,58,.15);
+    padding:1.4rem 1.2rem;
+    height:100%;
+  }
+  .ic-card::before, .ic-card::after{
+    content:"";
+    position:absolute;
+    left:14px; right:14px;
+    height:3px;
+    background:repeating-linear-gradient(to right, #0B1F3A 0 6px, transparent 6px 12px);
+    opacity:.5;
+  }
+  .ic-card::before{top:-2px;}
+  .ic-card::after{bottom:-2px;}
+  .ic-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;
+    font-weight:700;
+    color:#0B1F3A;
+    background:#F0A63A;
+    display:inline-block;
+    padding:.15rem .45rem;
+    border-radius:2px;
+  }
+  .ic-title{font-family:'Chakra Petch',sans-serif; font-weight:700; color:#0B1F3A; margin-top:.6rem;}
+  .ic-desc{font-size:.88rem; color:#555; margin-top:.35rem;}
+
+  .board-edge{
+    background:#0B1F3A;
+    border-top:2px solid #F0A63A;
+  }
+  .board-edge .item{font-family:'JetBrains Mono',monospace; font-size:.75rem; color:rgba(245,243,238,.75);}
+</style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+ <header class="site-header">
+    <nav class="nav">
+      <!-- <a href="index.html" class="brand brand-logo-only">
+        <img src="images/pcc-logo.jpeg" alt="PCC Academy" class="mark">
+      </a> -->
+      <a href="index.html" class="brand">
+  <img src="images/logo/logo1.png" alt="PCC GROUPS" class="mark">
+  <span class="brand-name">PCC GROUPS</span>
+</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="has-dropdown">
+          <a href="#" class="nav-link">PCC GROUPS</a>
+          <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-label="Toggle Courses submenu">
+            <svg viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="dropdown">
+           
+           <a href="academy.html"><span class="dot"></span><span class="dd-text">PCC Academy</span></a>
+           <a href="consultant.html"><span class="dot"></span><span class="dd-text">PCC Consultant</span></a> 
+           <a href="project_center.html"><span class="dot"></span><span class="dd-text">PCC Project Center</span></a> 
+           <a href="career_academy.html"><span class="dot"></span><span class="dd-text">PCC  Career Academy</span></a> 
+           <a href="ai.html"><span class="dot"></span><span class="dd-text">PCC STEM & AI</span></a> 
+
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Courses</a>
+          <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-label="Toggle Courses submenu">
+            <svg viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <!-- <a href="#"><span class="dot"></span><span class="dd-text">IT Courses</span></a>
+            <a href="#"><span class="dot"></span><span class="dd-text">Engineering Projects</span></a>
+            <a href="#"><span class="dot"></span><span class="dd-text">AutoCAD </span></a> -->
+                 <a href="auto-cad.html"><span class="dot"></span><span class="dd-text">AutoCAD </span></a> 
+                <a href="courses-it.html"><span class="dot"></span><span class="dd-text">IT Courses</span></a>
+                <a href="ece.html"><span class="dot"></span><span class="dd-text">Electronics Courses</span></a> 
+          </div>
+        </li>
+        <li><a href="project.html" class="nav-link">Projects</a></li>
+        <li><a href="careers.html" class="nav-link">Careers</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+
+     
+        <!-- <a href="contact.html" class="btn btn-ghost">Contact Us</a> -->
+          <div class="nav-cta">
+      <!--   <a href="tel:+91 63828 94608" class="btn btn-primary">Enroll Now
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>-->
+        <button class="nav-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div> 
+    </nav>
+  </header>
+
+  <!-- Mobile panel -->
+  <div class="mobile-overlay"></div>
+  <div class="mobile-panel">
+    <div class="m-head">
+      <span class="brand brand-logo-only"><img src="images/logo/logo2.png" alt="PCC Academy" class="mark"></span>
+      <button class="m-close" aria-label="Close menu">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2 2L14 14M14 2L2 14" stroke="#0B2545" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+     <div class="m-group-label">PCC GROUPS</div>
+    <div class="m-sub">
+      <a href="academy.html">— PCC Academy</a>
+       <a href="consultant.html">— PCC Consultant</a>
+     <a href="project_center.html">— PCC Project Center</a>
+       <a href="career_academy.html">— PCC  Career Academy</a>
+     <a href="ai.html">— PCC STEM & AI</a>
+    </div>
+    <div class="m-group-label">Courses</div>
+    <div class="m-sub">
+      <a href="auto-cad.html">— AutoCAD </a>
+      <a href="courses-it.html">— IT Courses</a>
+      <a href="ece.html">— Electronics Courses</a>
+       
+     
+     
+    </div>
+     <a href="project.html">Projects</a>
+     <a href="careers.html">Careers</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+  <!-- <a href="tel:+91 63828 94608" class="btn btn-primary" style="margin-top:22px; justify-content:center; border:none;">Enroll
+      Now</a> --> 
+  </div>
+<!-- ============ FLOATING CONTACT BUTTONS ============ -->
+<div class="float-contact" aria-label="Quick contact options">
+<a href="https://wa.me/916382894608?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses"
+   target="_blank" rel="noopener" class="fc-btn fc-whatsapp" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.05 0 5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.423-8.452"/></svg>
+  <span class="fc-tooltip">Chat on WhatsApp</span>
+</a>
+  <a href="tel:+916382894608" class="fc-btn fc-call" aria-label="Call PCC Academy">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor"/></svg>
+    <span class="fc-tooltip">Call +91 63828 94608</span>
+  </a>
+</div>
+<!-- <section class="ah-banner">
+  <div class="container ah-grid">
+    <div class="ah-copy reveal">
+   
+      <h1>Build Your Skills with PCC Academy</h1>
+      <div class="ah-stats">
+        <p><strong>3,200+</strong> Students Trained Across Tamil Nadu</p>
+        <p><strong>94%</strong> Placement Rate With 60+ Hiring Partners</p>
+      </div>
+      <div class="ah-ribbon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.6L21 11l-6.4 2.4L12 20l-2.6-6.6L3 11l6.4-2.4L12 2z" fill="currentColor"/></svg>
+        3 Years of Training Legacy
+      </div>
+    </div>
+    <div class="ah-media reveal">
+      <div class="am-glow" aria-hidden="true"></div>
+      <div class="am-photo">
+        <img src="images/course.avif" alt="PCC Academy students training in the lab">
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- HERO -->
+<header class="bg-navy trace-bg position-relative" id="top">
+  <div class="container py-5">
+    <div class="row justify-content-center text-center py-4">
+      <div class="col-lg-8">
+        <!-- <span class="ff-mono text-amber text-uppercase small"><span class="via-dot me-2"></span>Hardware to Documentation — End to End</span> -->
+        <h1 class="ff-display fw-bold text-white mt-3 mb-2" style="font-size:clamp(2.3rem,5vw,3.6rem);">PCC PROJECT CENTER</h1>
+        <p class="text-white fs-4 mb-3">Final Year Projects &amp; Research</p>
+        <p class="text-white mx-auto mb-4" style="max-width:560px;">From circuit to certificate — we help engineering and computer applications students build IEEE-standard final year projects, complete with documentation and viva support.</p>
+        <a href="contact.html" class="btn btn-amber rounded-0 px-4 py-2 ff-mono text-uppercase">View Modules</a>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center gap-2 pb-3">
+      <span class="degree-chip px-3 py-2">B.E.</span>
+      <span class="degree-chip px-3 py-2">B.Tech.</span>
+      <span class="degree-chip px-3 py-2">M.E.</span>
+      <span class="degree-chip px-3 py-2">M.Tech.</span>
+      <span class="degree-chip px-3 py-2">Diploma</span>
+      <span class="degree-chip px-3 py-2">MCA</span>
+    </div>
+  </div>
+</header>
+
+<!-- MODULES -->
+<section class="py-5 my-4" id="modules">
+  <div class="container">
+    <!-- <span class="ff-mono text-uppercase small" style="color:#C87F1E;">Project Board — 08 Modules</span> -->
+    <h2 class="ff-display fw-bold mt-2 mb-2" style="color:#0B1F3A;">Hardware &amp; Technical</h2>
+    <p class="text-secondary mb-4">Domain-specific build tracks.</p>
+
+    <div class="row g-4 mb-5">
+      <div class="col-sm-6 col-lg-4 wow animate__fadeInDown">
+        <div class="ic-card">
+          <span class="ic-tag">1</span>
+          <div class="ic-title">IEEE Projects</div>
+          <div class="ic-desc">Built on published IEEE papers and standards.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 wow animate__fadeInDown">
+        <div class="ic-card">
+          <span class="ic-tag">2</span>
+          <div class="ic-title">Embedded Hardware Projects</div>
+          <div class="ic-desc">Microcontroller-based hardware builds.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 wow animate__fadeInDown">
+        <div class="ic-card">
+          <span class="ic-tag">3</span>
+          <div class="ic-title">MATLAB Projects</div>
+          <div class="ic-desc">Simulation and modelling based projects.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 wow animate__fadeInDown">
+        <div class="ic-card">
+          <span class="ic-tag">4</span>
+          <div class="ic-title">IoT Projects</div>
+          <div class="ic-desc">Connected sensor and device systems.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 wow animate__fadeInDown">
+        <div class="ic-card">
+          <span class="ic-tag">5</span>
+          <div class="ic-title">PCB Design</div>
+          <div class="ic-desc">Custom circuit design and fabrication support.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ff-display fw-bold mt-2 mb-2" style="color:#0B1F3A;">Academic Support</h2>
+    <p class="text-secondary mb-4">From paper to podium.</p>
+
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-4 wow fadeInUp" >
+        <div class="ic-card">
+          <span class="ic-tag">1</span>
+          <div class="ic-title">Documentation</div>
+          <div class="ic-desc">Reports formatted to university guidelines.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 wow fadeInUp">
+        <div class="ic-card">
+          <span class="ic-tag">2</span>
+          <div class="ic-title">Journal Support</div>
+          <div class="ic-desc">Paper drafting and submission guidance.</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 wow fadeInUp">
+        <div class="ic-card">
+          <span class="ic-tag">3</span>
+          <div class="ic-title">Viva Preparation</div>
+          <div class="ic-desc">Mock viva and presentation coaching.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 text-center bg-navy-2" id="contact">
+  <div class="container py-3">
+    <h3 class="ff-display fw-bold text-white">Ready to start your build?</h3>
+    <p class="text-white-50 mx-auto my-3" style="max-width:520px;">Tell us your department and degree — we'll match you with the right project track.</p>
+    <a href="tel:+916382894608" class="btn btn-amber rounded-0 px-4 py-2 ff-mono text-uppercase">Start Your Build</a>
+  </div>
+</section>
+
+
+
+
+
+ <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="brand brand-logo-only"><img src="images/logo/logo1.1.jpeg" alt="PCC Academy" class="mark"></span>
+          <p class="about">A Training Institute offering IT Courses, Engineering Project Training, and Professional
+            AutoCAD  2D & 3D Courses.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none">
+                <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z" fill="currentColor" />
+              </svg></a>
+            <a href="https://www.instagram.com/pcc_academy_ngl?utm_source=qr&igsh=MWkzazdhOGw4OHBkMg=="
+              aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" target="_blank">
+                <rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.7" />
+                <circle cx="16.6" cy="7.4" r="1" fill="currentColor" />
+              </svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.7" />
+                <path d="M8 10.5v6M8 8v.01M12 16.5v-3.6c0-1.4 1-2.4 2.2-2.4S16 11.5 16 13v3.5" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" />
+              </svg></a>
+            <a href="https://youtube.com/@pccacademy-c6y?si=T_yzQghVoS3qcxLo" target="_blank" aria-label="YouTube"><svg
+                viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="6.5" width="18" height="11" rx="3" stroke="currentColor" stroke-width="1.7" />
+                <path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" />
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>PCC GROUPS</h4>
+          <ul>
+            <li><a href="academy.html">PCC Academy</a></li>
+            <li><a href="consultant.html">PCC Consultant</a></li>
+            <li><a href="project_center.html">PCC Project Center</a></li>
+            <li><a href="career_academy.html">PCC  Career Academy</a></li>
+            <li><a href="ai.html">PCC STEM & AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in Touch</h4>
+           <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 6l8 6 8-6M4 6h16v12H4V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="mailto:pccacademy.edu@gmail.com">pccacademy.edu@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <a href="tel:+916382894608">+91 63828 94608</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2C10.6 21 3 13.4 3 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <a href="tel:+916374392096">+91 63743 92096</a>
+        </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            <span>PCC Academy ,Opp to vadasery Busstand, thanu Building Nagercoil-1</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span class="year"></span> PCC Academy. All rights reserved.</span>
+        <!-- <span>Designed for practical, industry-ready learning.</span> -->
+      </div>
+    </div>
+  </footer>
+  
+     <script src="js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
